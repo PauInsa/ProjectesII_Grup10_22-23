@@ -35,7 +35,7 @@ public class Shoot : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        grounded = Physics2D.Raycast(gun.position, Vector2.down, 0.8f, LayerMask.GetMask("Walls"));
+        grounded = Physics2D.Raycast(gun.position, Vector2.down, 0.8f, LayerMask.GetMask("Wall"));
 
         if (Input.GetMouseButtonDown(0))
         {

@@ -51,7 +51,7 @@ public class Pistola : MonoBehaviour
         //else
         //    isAiming = false;
 
-        if (!Physics2D.Raycast(gun.position, Vector2.down, aimHeight, LayerMask.GetMask("Walls"))/*|| isAiming == true*/)
+        if (!Physics2D.Raycast(gun.position, Vector2.down, aimHeight, LayerMask.GetMask("Wall"))/*|| isAiming == true*/)
         {
             direction = mouseWorldPosition - (Vector2)gun.position;
             Quaternion rotation = Quaternion.LookRotation(Vector3.forward, Quaternion.Euler(0,0,90f) * direction);

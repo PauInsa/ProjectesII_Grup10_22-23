@@ -5,7 +5,7 @@ using UnityEngine;
 public class HP : MonoBehaviour
 {
     public int hp;
-    public AudioSource audioSource;
+    //public AudioSource audioSource;
 
     public void DamageReceived(int damage)
     {
@@ -14,14 +14,14 @@ public class HP : MonoBehaviour
             Die();
     }
 
-    public void HurtSound()
-    {
-        audioSource.Play();
-    }
+    //public void HurtSound()
+    //{
+    //    audioSource.Play();
+    //}
 
 
     void Die()
     {
-        gameObject.SetActive(false);
+        Destroy(gameObject);
     }
 }
