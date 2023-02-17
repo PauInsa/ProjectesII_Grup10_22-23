@@ -183,8 +183,8 @@ MonoBehaviour:
   gun: {fileID: 194725409}
   rb: {fileID: 194725407}
   animator: {fileID: 0}
-  aimHeight: 2
-  angularDrag: 0.9
+  aimHeight: 4352
+  angularDrag: 0.5
   linearDrag: 2
 --- !u!61 &194725406
 BoxCollider2D:
@@ -228,7 +228,7 @@ Rigidbody2D:
   m_LinearDrag: 2
   m_AngularDrag: 2.5
   m_GravityScale: 1.7
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: bd7ae184ba3f59942b1c8a1795bc88ab, type: 2}
   m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 1
@@ -293,7 +293,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 194725403}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 11.07, y: 3.15, z: 0}
+  m_LocalPosition: {x: 11.84, y: 3.15, z: 0}
   m_LocalScale: {x: 1.2038941, y: 0.40890253, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

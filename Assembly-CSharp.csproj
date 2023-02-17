@@ -58,10 +58,10 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\CameraMovement.cs" />
     <Compile Include="Assets\Scripts\Gun\Pistola.cs" />
+    <Compile Include="Assets\Scripts\Bullet\BulletCollision.cs" />
     <Compile Include="Assets\Scripts\Gun\Interpolator.cs" />
     <Compile Include="Assets\Scripts\Gun\Shoot.cs" />
     <Compile Include="Assets\Scripts\Objects\HP.cs" />
-    <Compile Include="Assets\Scripts\Bullet\BulletCollision.cs" />
     <Compile Include="Assets\Scripts\Bullet\BulletStats.cs" />
   </ItemGroup>
   <ItemGroup>
