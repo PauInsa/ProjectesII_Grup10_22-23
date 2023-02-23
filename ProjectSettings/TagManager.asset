@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Enemy
   - Wall
+  - Human
   layers:
   - Default
   - TransparentFX
@@ -17,8 +18,8 @@ TagManager:
   - Wall
   - 
   - 
-  - 
-  - Enemy
+  - Humans
+  - Enemies
   - 
   - 
   - 
