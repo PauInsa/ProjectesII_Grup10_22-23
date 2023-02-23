@@ -59,7 +59,7 @@ public class Shoot : MonoBehaviour
             //particleSystem.Play();
 
             deltaTimeFire = Time.time + 1 / fireRate;
-            goBullet = Instantiate(bullet, gun.position, shootPoint.rotation);
+            goBullet = Instantiate(bullet, shootPoint.position, shootPoint.rotation);
             goBullet.transform.right = gun.transform.right;
             goBullet.GetComponent<Rigidbody2D>().AddForce(goBullet.transform.right * bulletSpd);
             recoil();
