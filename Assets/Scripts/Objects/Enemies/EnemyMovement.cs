@@ -22,10 +22,7 @@ public class EnemyMovement : MonoBehaviour
 
     void Update()
     {
-        grounded = Physics2D.Raycast(enemyTransform.position, Vector2.down, 0.7f, LayerMask.GetMask("Wall"));
-
-        if (Input.GetMouseButtonDown(0))
-            Jump();
+        grounded = Physics2D.Raycast(enemyTransform.position, Vector2.down, 0.8f, LayerMask.GetMask("Wall"));
 
         if (stop == false)
             Move();

@@ -6,7 +6,6 @@ public class Pistola : MonoBehaviour
 {
     Interpolator aimToCursor;
     public float aimDelayTime;
-    bool isAiming;
 
     public SpriteRenderer render;
     public Transform gun;
@@ -25,7 +24,6 @@ public class Pistola : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        isAiming = false;
         aimToCursor = new Interpolator(aimDelayTime);
     }
 

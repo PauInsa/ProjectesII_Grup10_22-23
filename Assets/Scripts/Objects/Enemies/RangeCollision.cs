@@ -7,7 +7,7 @@ public class RangeCollision : MonoBehaviour
     public GameObject objective;
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Humans"))
+        if (collision.CompareTag("Human"))
             objective = collision.gameObject;
     }
 }
