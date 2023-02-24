@@ -12,13 +12,18 @@ public class EnemyMovement : MonoBehaviour
 
     public bool stop;
 
+    public bool grounded;
+
     void Start()
     {
         stop = false;
+        grounded = false;
     }
 
     void Update()
     {
+        grounded = Physics2D.Raycast(enemyTransform.position, Vector2.down, 0.7f, LayerMask.GetMask("Wall"));
+
         if (Input.GetMouseButtonDown(0))
             Jump();
 
@@ -28,8 +33,6 @@ public class EnemyMovement : MonoBehaviour
 
     public void Jump()
     {
-        bool grounded = Physics2D.Raycast(enemyTransform.position, Vector2.down, 0.1f);
-
         if (grounded)
             rb.AddForce(Vector2.up * jumpMagnitude);
     }

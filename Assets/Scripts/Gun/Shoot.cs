@@ -19,7 +19,7 @@ public class Shoot : MonoBehaviour
     public float gunTorque;
     public float recoilForce;
     public float fireRate;
-    float deltaTimeFire;
+    float deltaTimeFire = 0.0f;
 
     //public ParticleSystem sparkles;
     GameObject goBullet;
@@ -58,7 +58,7 @@ public class Shoot : MonoBehaviour
             //CinemachineMovimientoCamara.Instance.MoverCamara(2.5f, 2.5f, 0.1f);
             //particleSystem.Play();
 
-            deltaTimeFire = Time.time + 1 / fireRate;
+            deltaTimeFire = Time.time + fireRate;
             goBullet = Instantiate(bullet, gun.position, shootPoint.rotation);
             goBullet.transform.right = gun.transform.right;
             goBullet.GetComponent<Rigidbody2D>().AddForce(goBullet.transform.right * bulletSpd);
