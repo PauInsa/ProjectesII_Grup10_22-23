@@ -19,7 +19,7 @@ public class Shoot : MonoBehaviour
     public float gunTorque;
     public float recoilForce;
     public float fireRate;
-    float deltaTimeFire;
+    float deltaTimeFire = 0.0f;
 
     //public ParticleSystem sparkles;
     GameObject goBullet;
