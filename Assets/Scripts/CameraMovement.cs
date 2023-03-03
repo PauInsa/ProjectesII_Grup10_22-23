@@ -8,9 +8,10 @@ public class CameraMovement : MonoBehaviour
     public float delta = 0.001f;
 
 
-    [SerializeField] float rightLimit = 6.4f;
+    public float rightLimit = 6.4f;
     [SerializeField] float leftLimit = -5.9f;
     [SerializeField] float upLimit = 1.4f;
+    [SerializeField] float downLimit = 1.4f;
 
     [SerializeField] float extraY = 0.6f;
 
@@ -28,8 +29,11 @@ public class CameraMovement : MonoBehaviour
 
         if (target.position.y >= upLimit)
             finalPos = new Vector3(finalPos.x, upLimit);
+        else if (target.position.y <= downLimit)
+            finalPos = new Vector3(finalPos.x, downLimit);
 
-        finalPos = new Vector3(finalPos.x, finalPos.y + extraY, -10);
+
+        finalPos = new Vector3(finalPos.x, finalPos.y/* + extraY*/, -10);
 
         transform.position = Vector3.MoveTowards(transform.position, finalPos, delta);
     }

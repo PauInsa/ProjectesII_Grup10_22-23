@@ -15,11 +15,13 @@ public class Shoot : MonoBehaviour
     public GameObject bullet;
     public float bulletSpd;
 
-    public bool grounded;
+    public float jumpForce;
     public float gunTorque;
     public float recoilForce;
     public float fireRate;
     float deltaTimeFire = 0.0f;
+
+    public bool grounded;
 
     //public ParticleSystem sparkles;
     GameObject goBullet;
@@ -35,16 +37,22 @@ public class Shoot : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        grounded = Physics2D.Raycast(gun.position, Vector2.down, 0.8f, LayerMask.GetMask("Wall"));
+        grounded = Physics2D.Raycast(gun.position, Vector2.down, 1.0f, LayerMask.GetMask("Wall"));
 
         if (Input.GetMouseButtonDown(0))
         {
             shoot();
         }
-        else if (Input.GetMouseButtonDown(1))
+
+        if (Input.GetMouseButtonDown(1))
         {
-            FlipGun();
+            Jump();
         }
+
+        if (Input.GetKey(KeyCode.A))
+            rb.AddTorque(gunTorque, ForceMode2D.Force);
+        else if (Input.GetKey(KeyCode.D))
+            rb.AddTorque(-gunTorque, ForceMode2D.Force);
 
         //sparkles.transform.position = goBullet.transform.position;  
     }
@@ -58,7 +66,7 @@ public class Shoot : MonoBehaviour
             //CinemachineMovimientoCamara.Instance.MoverCamara(2.5f, 2.5f, 0.1f);
             //particleSystem.Play();
 
-            deltaTimeFire = Time.time + 1 / fireRate;
+            deltaTimeFire = Time.time + fireRate;
             goBullet = Instantiate(bullet, shootPoint.position, shootPoint.rotation);
             goBullet.transform.right = gun.transform.right;
             goBullet.GetComponent<Rigidbody2D>().AddForce(goBullet.transform.right * bulletSpd);
@@ -73,14 +81,13 @@ public class Shoot : MonoBehaviour
     {
         Vector2 xyVector = new Vector2(gun.transform.right.x, gun.transform.right.y);
         xyVector.Normalize();
+        rb.velocity = Vector2.zero;
         rb.AddForce(xyVector * recoilForce, ForceMode2D.Impulse);
     }
-    void FlipGun()
+    void Jump()
     {
         if (grounded == true)
-            rb.AddForce(Vector2.up * 30, ForceMode2D.Impulse);
-
-        rb.AddTorque(gunTorque, ForceMode2D.Impulse);
+            rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
     }
 }
 
