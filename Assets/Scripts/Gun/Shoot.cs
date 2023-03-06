@@ -9,17 +9,27 @@ public class Shoot : MonoBehaviour
     public Transform gun;
     public Rigidbody2D rb;
 
-    //public AudioSource fireSound;
+    //public AudioSource fireSound, reloadSound;
 
     public Transform shootPoint;
     public GameObject bullet;
     public float bulletSpd;
+    float dissapearTime = 5.0f;
+
 
     public float jumpForce;
     public float gunTorque;
     public float recoilForce;
     public float fireRate;
     float deltaTimeFire = 0.0f;
+
+    public float reloadTime;
+
+    public int maxAmmo;
+    int ammo;
+
+    bool reloading;
+    float deltaTimeReload;
 
     public bool grounded;
 
@@ -31,6 +41,8 @@ public class Shoot : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        ammo = maxAmmo;
+        reloading = false;
         ableToShoot = false;
     }
 
@@ -49,6 +61,9 @@ public class Shoot : MonoBehaviour
             Jump();
         }
 
+        if (Input.GetKey(KeyCode.E))
+            Reload();
+
         if (Input.GetKey(KeyCode.A))
             rb.AddTorque(gunTorque, ForceMode2D.Force);
         else if (Input.GetKey(KeyCode.D))
@@ -59,23 +74,41 @@ public class Shoot : MonoBehaviour
 
     public void shoot()
     {
-        if (Time.time > deltaTimeFire)
+
+        if (ammo == 0 && reloading == false)
+            Reload();
+
+        if (reloading == false)
         {
-            ableToShoot = true;
+            if (Time.time > deltaTimeFire)
+            {
+                ableToShoot = true;
 
-            //CinemachineMovimientoCamara.Instance.MoverCamara(2.5f, 2.5f, 0.1f);
-            //particleSystem.Play();
+                //CinemachineMovimientoCamara.Instance.MoverCamara(2.5f, 2.5f, 0.1f);
+                //particleSystem.Play();
 
-            deltaTimeFire = Time.time + fireRate;
-            goBullet = Instantiate(bullet, shootPoint.position, shootPoint.rotation);
-            goBullet.transform.right = gun.transform.right;
-            goBullet.GetComponent<Rigidbody2D>().AddForce(goBullet.transform.right * bulletSpd);
-            recoil();
+                deltaTimeFire = Time.time + fireRate;
+                goBullet = Instantiate(bullet, shootPoint.position, shootPoint.rotation);
+                goBullet.transform.right = gun.transform.right;
+                goBullet.GetComponent<Rigidbody2D>().AddForce(goBullet.transform.right * bulletSpd);
+                recoil();
 
-            //fireSound.Play();
+                Destroy(goBullet, dissapearTime);
+
+                ammo--;
+
+                //fireSound.Play();
+            }
         }
-        else
-            ableToShoot = false;
+
+        if (reloading == true)
+        {
+            if (Time.time > deltaTimeReload)
+            {
+                ammo = maxAmmo;
+                reloading = false;
+            }
+        }
     }
     public void recoil()
     {
@@ -83,6 +116,13 @@ public class Shoot : MonoBehaviour
         xyVector.Normalize();
         rb.velocity = Vector2.zero;
         rb.AddForce(xyVector * recoilForce, ForceMode2D.Impulse);
+    }
+
+    public void Reload()
+    {
+        reloading = true;
+        //reloadSound.Play();
+        deltaTimeReload = Time.time + reloadTime;
     }
     void Jump()
     {
