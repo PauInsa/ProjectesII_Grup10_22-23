@@ -195,7 +195,7 @@ MonoBehaviour:
   grounded: 0
   gunTorque: 10
   recoilForce: -50
-  fireRate: 0.3
+  fireRate: 3456546
   ableToShoot: 0
 --- !u!114 &194725405
 MonoBehaviour:

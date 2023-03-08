@@ -14,8 +14,11 @@ public class EnemyMovement : MonoBehaviour
 
     public bool grounded;
 
+    Animator animator;
+
     void Start()
     {
+        animator = this.GetComponent<Animator>();
         stop = false;
         grounded = false;
     }
@@ -26,6 +29,8 @@ public class EnemyMovement : MonoBehaviour
 
         if (stop == false)
             Move();
+
+        animator.SetBool("isMoving", !stop);
     }
 
     public void Jump()

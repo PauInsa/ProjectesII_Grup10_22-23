@@ -11,10 +11,15 @@ public class EnemyAttack : MonoBehaviour
 
     EnemyMovement mov;
 
+    Animator animator;
+    bool isAttacking;
+
     // Start is called before the first frame update
     void Start()
     {
         mov = this.GetComponent<EnemyMovement>();
+        animator = this.GetComponent<Animator>();
+        isAttacking = false;
     }
 
     // Update is called once per frame
@@ -24,9 +29,15 @@ public class EnemyAttack : MonoBehaviour
         {
             mov.stop = true;
             Attack();
+            isAttacking=true;
         }
         else
+        {
             mov.stop = false;
+            isAttacking = false;
+        }
+
+        animator.SetBool("isAttacking", isAttacking);
     }
 
     void Attack()
