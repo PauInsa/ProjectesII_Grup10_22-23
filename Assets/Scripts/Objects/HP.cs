@@ -6,21 +6,25 @@ public class HP : MonoBehaviour
 {
     public int hp;
     Animator animator;
+    Collider2D collider;
+    Rigidbody2D rb;
     bool isHurt;
     //public AudioSource audioSource;
 
     void Start()
     {
         animator = this.GetComponent<Animator>();
+        collider = this.GetComponent<Collider2D>();
+        rb = this.GetComponent<Rigidbody2D>();
     }
 
     private void Update()
     {
-        animator.SetBool("isHurt", false);
+
     }
     public void DamageReceived(int damage)
     {
-        animator.SetBool("isHurt", true);
+        animator.Play("Hurt");
         
         hp -= damage;
         if (hp <= 0)
@@ -36,6 +40,7 @@ public class HP : MonoBehaviour
     void Die()
     {
         animator.SetBool("isDead", true);
-        //Destroy(gameObject);
+        rb.bodyType = RigidbodyType2D.Static;
+        collider.enabled = false;
     }
 }
