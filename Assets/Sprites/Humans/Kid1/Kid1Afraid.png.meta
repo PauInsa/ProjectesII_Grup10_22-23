@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 5bc1ed967c6f9b84cbef4ad305df59f9
+guid: 3381fda2b1e83904ab4e7d88135e5210
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -47,7 +47,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 16
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -104,13 +104,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: BulletCollision_0
+      name: Kid1Afraid_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 7
-        height: 8
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -118,20 +118,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9f087bb1afe425944bbf0438b142ee58
-      internalID: -1910885984
+      spriteID: 08c954af120f57d49bf0c6266888517c
+      internalID: -477740158
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BulletCollision_1
+      name: Kid1Afraid_1
       rect:
         serializedVersion: 2
-        x: 7
+        x: 16
         y: 0
-        width: 7
-        height: 8
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -139,29 +139,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 56815ffb32ddc3746a7960e7a161fa55
-      internalID: -1957501930
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: BulletCollision_2
-      rect:
-        serializedVersion: 2
-        x: 14
-        y: 0
-        width: 7
-        height: 8
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f98cea79de899b8438a24798c821cd41
-      internalID: 461336749
+      spriteID: a9310b315935b8d40b71b75032c8c14e
+      internalID: -680655860
       vertices: []
       indices: 
       edges: []
@@ -177,9 +156,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      BulletCollision_2: 461336749
-      BulletCollision_0: -1910885984
-      BulletCollision_1: -1957501930
+      Kid1Afraid_1: -680655860
+      Kid1Afraid_0: -477740158
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

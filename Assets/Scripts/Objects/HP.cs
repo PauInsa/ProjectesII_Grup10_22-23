@@ -40,7 +40,7 @@ public class HP : MonoBehaviour
     void Die()
     {
         animator.SetBool("isDead", true);
-        rb.bodyType = RigidbodyType2D.Static;
+        rb.simulated = false;
         collider.enabled = false;
     }
 }

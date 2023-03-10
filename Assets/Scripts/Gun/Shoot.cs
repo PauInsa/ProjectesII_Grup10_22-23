@@ -6,10 +6,15 @@ using TMPro;
 
 public class Shoot : MonoBehaviour
 {
+    public Pool casePool;
+
     public Transform gun;
     public Rigidbody2D rb;
-
+    public Animator anim;
     //public AudioSource fireSound, reloadSound;
+
+    public Transform standingMassCenter;
+    public Transform normalMassCenter;
 
     public Transform shootPoint;
     public GameObject bullet;
@@ -48,6 +53,8 @@ public class Shoot : MonoBehaviour
 
     public bool ableToShoot;
 
+
+    public Transform centerMassViewer;
     // Start is called before the first frame update
     void Start()
     {
@@ -55,11 +62,28 @@ public class Shoot : MonoBehaviour
         reloading = false;
         ableToShoot = false;
         activateJump = false;
+
+        UpdateMassCenter();
+    }
+
+    void UpdateMassCenter()
+    {
+        float angle = Vector2.Angle(gun.transform.right, Vector2.right);
+
+        if (grounded && angle <= 90.0f)
+            rb.centerOfMass = standingMassCenter.localPosition;
+        else
+            rb.centerOfMass = normalMassCenter.localPosition;
+        rb.WakeUp();
+
+        centerMassViewer.localPosition = rb.centerOfMass;
     }
 
     // Update is called once per frame
     void Update()
     {
+        UpdateMassCenter();
+
         grounded = Physics2D.Raycast(gun.position, Vector2.down, 1.2f, LayerMask.GetMask("Wall"));
 
         if (Input.GetMouseButtonDown(0))
@@ -72,7 +96,7 @@ public class Shoot : MonoBehaviour
             Jump();
         }
 
-        if (Input.GetKey(KeyCode.E))
+        if (Input.GetKey(KeyCode.E) && !reloading)
             Reload();
 
         if (Input.GetKey(KeyCode.A))
@@ -89,16 +113,24 @@ public class Shoot : MonoBehaviour
         }
 
         if (!grounded)
+        {
             activateJump = true;
+        }
+
+        //if(grounded && )
 
         //sparkles.transform.position = goBullet.transform.position;  
+        if (Time.time > deltaTimeReload && reloading)
+        {
+            ammo = maxAmmo;
+            anim.SetInteger("Ammo", ammo);
+            reloading = false;
+        }
     }
 
     public void shoot()
     {
 
-        if (ammo == 0 && !reloading)
-            Reload();
 
         if (!reloading)
         {
@@ -116,25 +148,15 @@ public class Shoot : MonoBehaviour
                 goBullet.GetComponent<Rigidbody2D>().AddForce(goBullet.transform.right * bulletSpd);
                 Destroy(goBullet, bulletDissapearTime);
 
-                goBulletCase = Instantiate(bulletCase, casePoint.transform.position, casePoint.rotation);
-                goBulletCase.transform.right = casePoint.transform.right;
-                goBulletCase.GetComponent<Rigidbody2D>().AddForce(goBulletCase.transform.right * bulletCaseForce);
-                goBulletCase.GetComponent<Rigidbody2D>().AddTorque(gunTorque, ForceMode2D.Force);
-                Destroy(goBulletCase, bulletCaseDissapearTime);
+                SpawnBulletCase();
 
                 recoil();
-
+                anim.SetTrigger("Shoot");
                 ammo--;
+                anim.SetInteger("Ammo", ammo);
 
-                //fireSound.Play();
-            }
-        }
-        else
-        {
-            if (Time.time > deltaTimeReload)
-            {
-                ammo = maxAmmo;
-                reloading = false;
+                if (ammo == 0)
+                    Reload();
             }
         }
     }
@@ -142,16 +164,34 @@ public class Shoot : MonoBehaviour
     {
         Vector2 xyVector = new Vector2(gun.transform.right.x, gun.transform.right.y);
         xyVector.Normalize();
-        rb.velocity = Vector2.zero;
+        //rb.velocity = Vector2.zero;
         downForce = 0.0f;
-        rb.AddForce(xyVector * recoilForce, ForceMode2D.Impulse);
+        rb.AddForce(xyVector * recoilForce, ForceMode2D.Force);
     }
 
     public void Reload()
     {
+        for(int i = 0; i < ammo; i++)
+        {
+            SpawnBulletCase();
+        }
+        ammo = 0;
+        anim.SetInteger("Ammo", ammo);
+        anim.SetTrigger("Reload");
         reloading = true;
         //reloadSound.Play();
         deltaTimeReload = Time.time + reloadTime;
+    }
+    void SpawnBulletCase()
+    {
+        Rigidbody2D caseRb = casePool.Spawn();
+
+        caseRb.GetComponent<DissapearTime>().SetPool(casePool);
+
+        caseRb.transform.position = casePoint.position;
+        caseRb.transform.rotation = casePoint.rotation;
+        caseRb.AddForce(new Vector2(Random.Range(-0.5f, 0.5f), 1f) * bulletCaseForce);
+        caseRb.AddTorque(gunTorque, ForceMode2D.Force);
     }
     void Jump()
     {
