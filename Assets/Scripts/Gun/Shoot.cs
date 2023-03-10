@@ -13,11 +13,21 @@ public class Shoot : MonoBehaviour
 
     public Transform shootPoint;
     public GameObject bullet;
+    GameObject goBullet;
     public float bulletSpd;
-    float dissapearTime = 5.0f;
+    float bulletDissapearTime = 5.0f;
 
+    public Transform casePoint;
+    public GameObject bulletCase;
+    GameObject goBulletCase;
+    public float bulletCaseForce;
+    float bulletCaseDissapearTime = 60.0f;
 
+    float deltaTimeJump;
+    public float jumpTime;
+    public bool activateJump;
     public float jumpForce;
+    public float downForce = 0.0f;
     public float gunTorque;
     public float recoilForce;
     public float fireRate;
@@ -34,7 +44,7 @@ public class Shoot : MonoBehaviour
     public bool grounded;
 
     //public ParticleSystem sparkles;
-    GameObject goBullet;
+    
 
     public bool ableToShoot;
 
@@ -44,12 +54,13 @@ public class Shoot : MonoBehaviour
         ammo = maxAmmo;
         reloading = false;
         ableToShoot = false;
+        activateJump = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        grounded = Physics2D.Raycast(gun.position, Vector2.down, 1.0f, LayerMask.GetMask("Wall"));
+        grounded = Physics2D.Raycast(gun.position, Vector2.down, 1.2f, LayerMask.GetMask("Wall"));
 
         if (Input.GetMouseButtonDown(0))
         {
@@ -65,9 +76,20 @@ public class Shoot : MonoBehaviour
             Reload();
 
         if (Input.GetKey(KeyCode.A))
-            rb.AddTorque(gunTorque, ForceMode2D.Force);
+            rb.AddTorque(gunTorque , ForceMode2D.Force);
         else if (Input.GetKey(KeyCode.D))
-            rb.AddTorque(-gunTorque, ForceMode2D.Force);
+            rb.AddTorque(-gunTorque , ForceMode2D.Force);
+
+
+        if (activateJump)
+        {
+            CalculateJump();
+            if (grounded)
+                activateJump = false;
+        }
+
+        if (!grounded)
+            activateJump = true;
 
         //sparkles.transform.position = goBullet.transform.position;  
     }
@@ -75,10 +97,10 @@ public class Shoot : MonoBehaviour
     public void shoot()
     {
 
-        if (ammo == 0 && reloading == false)
+        if (ammo == 0 && !reloading)
             Reload();
 
-        if (reloading == false)
+        if (!reloading)
         {
             if (Time.time > deltaTimeFire)
             {
@@ -88,20 +110,26 @@ public class Shoot : MonoBehaviour
                 //particleSystem.Play();
 
                 deltaTimeFire = Time.time + fireRate;
+
                 goBullet = Instantiate(bullet, shootPoint.position, shootPoint.rotation);
                 goBullet.transform.right = gun.transform.right;
                 goBullet.GetComponent<Rigidbody2D>().AddForce(goBullet.transform.right * bulletSpd);
-                recoil();
+                Destroy(goBullet, bulletDissapearTime);
 
-                Destroy(goBullet, dissapearTime);
+                goBulletCase = Instantiate(bulletCase, casePoint.transform.position, casePoint.rotation);
+                goBulletCase.transform.right = casePoint.transform.right;
+                goBulletCase.GetComponent<Rigidbody2D>().AddForce(goBulletCase.transform.right * bulletCaseForce);
+                goBulletCase.GetComponent<Rigidbody2D>().AddTorque(gunTorque, ForceMode2D.Force);
+                Destroy(goBulletCase, bulletCaseDissapearTime);
+
+                recoil();
 
                 ammo--;
 
                 //fireSound.Play();
             }
         }
-
-        if (reloading == true)
+        else
         {
             if (Time.time > deltaTimeReload)
             {
@@ -115,6 +143,7 @@ public class Shoot : MonoBehaviour
         Vector2 xyVector = new Vector2(gun.transform.right.x, gun.transform.right.y);
         xyVector.Normalize();
         rb.velocity = Vector2.zero;
+        downForce = 0.0f;
         rb.AddForce(xyVector * recoilForce, ForceMode2D.Impulse);
     }
 
@@ -126,8 +155,18 @@ public class Shoot : MonoBehaviour
     }
     void Jump()
     {
-        if (grounded == true)
+        if (grounded)
+        {
+            activateJump = true;
+            deltaTimeJump = Time.time + jumpTime;
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+        }
+    }
+
+    void CalculateJump()
+    {
+        float finalForce = downForce * (deltaTimeJump - Time.time);
+        rb.AddForce(Vector2.up * finalForce, ForceMode2D.Force);
     }
 }
 
