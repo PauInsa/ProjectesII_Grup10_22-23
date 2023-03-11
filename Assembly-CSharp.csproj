@@ -53,7 +53,7 @@
     <UnityVersion>2021.3.4f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
-    <Analyzer Include="C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
+    <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Objects\Humans\HumanManager.cs" />
@@ -63,13 +63,13 @@
     <Compile Include="Assets\Scripts\Bullet\BulletCollision.cs" />
     <Compile Include="Assets\Scripts\Gun\Interpolator.cs" />
     <Compile Include="Assets\Scripts\Gun\Shoot.cs" />
+    <Compile Include="Assets\Scripts\Bullet\Pool.cs" />
     <Compile Include="Assets\Scripts\Objects\Enemies\EnemyAttack.cs" />
+    <Compile Include="Assets\Scripts\Bullet\DissapearTime.cs" />
     <Compile Include="Assets\Scripts\Objects\Enemies\EnemyStats.cs" />
     <Compile Include="Assets\Scripts\Objects\HP.cs" />
     <Compile Include="Assets\Scripts\Bullet\BulletStats.cs" />
     <Compile Include="Assets\Scripts\Objects\Enemies\RangeCollision.cs" />
-    <Compile Include="Assets\Scripts\Bullet\Pool.cs" />
-    <Compile Include="Assets\Scripts\Bullet\DissapearTime.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

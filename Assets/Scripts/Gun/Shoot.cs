@@ -130,8 +130,6 @@ public class Shoot : MonoBehaviour
 
     public void shoot()
     {
-
-
         if (!reloading)
         {
             if (Time.time > deltaTimeFire)
@@ -176,8 +174,8 @@ public class Shoot : MonoBehaviour
             SpawnBulletCase();
         }
         ammo = 0;
-        anim.SetInteger("Ammo", ammo);
         anim.SetTrigger("Reload");
+        anim.SetInteger("Ammo", ammo);
         reloading = true;
         //reloadSound.Play();
         deltaTimeReload = Time.time + reloadTime;

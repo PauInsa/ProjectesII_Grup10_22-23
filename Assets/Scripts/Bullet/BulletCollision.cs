@@ -7,17 +7,18 @@ public class BulletCollision : MonoBehaviour
     public Animator anim;
     public Rigidbody2D rb;
     public BoxCollider2D col;
-    private void OnTriggerEnter2D(Collider2D collision)
+
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.CompareTag("Wall"))
+        if (collision.gameObject.CompareTag("Wall"))
         {
             Collide();
         }
 
-        if (collision.CompareTag("Enemy"))
+        if (collision.gameObject.CompareTag("Enemy"))
         {
             Collide();
-            HP hp = collision.GetComponent<HP>();
+            HP hp = collision.gameObject.GetComponent<HP>();
             if (hp != null)
             {
                 hp.DamageReceived(this.GetComponent<BulletStats>().damage);

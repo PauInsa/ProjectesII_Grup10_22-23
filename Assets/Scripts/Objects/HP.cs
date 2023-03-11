@@ -40,6 +40,11 @@ public class HP : MonoBehaviour
     void Die()
     {
         animator.SetBool("isDead", true);
+        Invoke("Disable", 0.5f);
+    }
+
+    void Disable()
+    {
         rb.simulated = false;
         collider.enabled = false;
     }
