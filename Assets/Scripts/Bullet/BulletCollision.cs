@@ -10,12 +10,12 @@ public class BulletCollision : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Wall"))
+        if (collision.gameObject.CompareTag("Wall") || collision.gameObject.CompareTag("MapLimit"))
         {
             Collide();
         }
 
-        if (collision.gameObject.CompareTag("Enemy"))
+        if (collision.gameObject.CompareTag("Enemy") || collision.gameObject.CompareTag("Human"))
         {
             Collide();
             HP hp = collision.gameObject.GetComponent<HP>();

@@ -6,16 +6,14 @@ public class DissapearTime : MonoBehaviour
 {
     public float despawnTime;
     public Rigidbody2D rb;
-    public Pool pool;
+    public PoolRb pool;
     float currentTime;
 
-    // Start is called before the first frame update
     void OnEnable()
     {
         currentTime = despawnTime;
     }
 
-    // Update is called once per frame
     void Update()
     {
         currentTime -= Time.deltaTime;
@@ -24,7 +22,7 @@ public class DissapearTime : MonoBehaviour
             pool.DeSpawn(rb);
     }
 
-    public void SetPool(Pool newPool)
+    public void SetPool(PoolRb newPool)
     {
         pool = newPool;
     }

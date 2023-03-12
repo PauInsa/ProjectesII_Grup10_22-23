@@ -56,20 +56,26 @@
     <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\Scenes\PauseMenu.cs" />
     <Compile Include="Assets\Scripts\Objects\Humans\HumanManager.cs" />
     <Compile Include="Assets\Scripts\CameraMovement.cs" />
+    <Compile Include="Assets\Scripts\Spawners\Spawner.cs" />
+    <Compile Include="Assets\Scripts\Scenes\SceneEvents.cs" />
+    <Compile Include="Assets\Scripts\PoolObj.cs" />
     <Compile Include="Assets\Scripts\Objects\Enemies\EnemyMovement.cs" />
     <Compile Include="Assets\Scripts\Gun\Pistola.cs" />
     <Compile Include="Assets\Scripts\Bullet\BulletCollision.cs" />
     <Compile Include="Assets\Scripts\Gun\Interpolator.cs" />
     <Compile Include="Assets\Scripts\Gun\Shoot.cs" />
-    <Compile Include="Assets\Scripts\Bullet\Pool.cs" />
+    <Compile Include="Assets\Scripts\PoolRb.cs" />
     <Compile Include="Assets\Scripts\Objects\Enemies\EnemyAttack.cs" />
     <Compile Include="Assets\Scripts\Bullet\DissapearTime.cs" />
     <Compile Include="Assets\Scripts\Objects\Enemies\EnemyStats.cs" />
     <Compile Include="Assets\Scripts\Objects\HP.cs" />
     <Compile Include="Assets\Scripts\Bullet\BulletStats.cs" />
+    <Compile Include="Assets\Scripts\Objects\DissapearTimeWithStart.cs" />
     <Compile Include="Assets\Scripts\Objects\Enemies\RangeCollision.cs" />
+    <Compile Include="Assets\Scripts\Scenes\WinCondition.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

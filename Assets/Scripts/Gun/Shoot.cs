@@ -6,7 +6,7 @@ using TMPro;
 
 public class Shoot : MonoBehaviour
 {
-    public Pool casePool;
+    public PoolRb casePool;
 
     public Transform gun;
     public Rigidbody2D rb;
@@ -23,10 +23,7 @@ public class Shoot : MonoBehaviour
     float bulletDissapearTime = 5.0f;
 
     public Transform casePoint;
-    public GameObject bulletCase;
-    GameObject goBulletCase;
     public float bulletCaseForce;
-    float bulletCaseDissapearTime = 60.0f;
 
     float deltaTimeJump;
     public float jumpTime;
@@ -96,13 +93,13 @@ public class Shoot : MonoBehaviour
             Jump();
         }
 
-        if (Input.GetKey(KeyCode.E) && !reloading)
+        if (Input.GetKey(KeyCode.E) && !reloading && ammo != maxAmmo)
             Reload();
 
         if (Input.GetKey(KeyCode.A))
-            rb.AddTorque(gunTorque , ForceMode2D.Force);
+            rb.AddTorque(gunTorque* Time.deltaTime , ForceMode2D.Impulse);
         else if (Input.GetKey(KeyCode.D))
-            rb.AddTorque(-gunTorque , ForceMode2D.Force);
+            rb.AddTorque(-gunTorque * Time.deltaTime , ForceMode2D.Impulse);
 
 
         if (activateJump)
@@ -189,7 +186,7 @@ public class Shoot : MonoBehaviour
         caseRb.transform.position = casePoint.position;
         caseRb.transform.rotation = casePoint.rotation;
         caseRb.AddForce(new Vector2(Random.Range(-0.5f, 0.5f), 1f) * bulletCaseForce);
-        caseRb.AddTorque(gunTorque, ForceMode2D.Force);
+        caseRb.AddTorque(gunTorque/10, ForceMode2D.Force);
     }
     void Jump()
     {

@@ -9,5 +9,7 @@ public class RangeCollision : MonoBehaviour
     {
         if (collision.CompareTag("Human"))
             objective = collision.gameObject;
+        else
+            objective = null;
     }
 }

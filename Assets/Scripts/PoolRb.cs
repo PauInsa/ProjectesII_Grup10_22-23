@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Pool : MonoBehaviour
+public class PoolRb : MonoBehaviour
 {
     public GameObject prefab;
     List<Rigidbody2D> objects = new List<Rigidbody2D>();

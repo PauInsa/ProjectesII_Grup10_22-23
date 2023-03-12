@@ -25,19 +25,23 @@ public class EnemyAttack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Physics2D.Raycast(this.transform.position, Vector2.left, 0.5f, LayerMask.GetMask("Humans")))
+        if (!this.GetComponent<HP>().isDead)
         {
-            mov.stop = true;
-            Attack();
-            isAttacking=true;
-        }
-        else
-        {
-            mov.stop = false;
-            isAttacking = false;
+            if (Physics2D.Raycast(this.transform.position, Vector2.left, 0.6f, LayerMask.GetMask("Humans")))
+            {
+                mov.stop = true;
+                Attack();
+                isAttacking = true;
+            }
+            else
+            {
+                mov.stop = false;
+                isAttacking = false;
+            }
         }
 
         animator.SetBool("isAttacking", isAttacking);
+
     }
 
     void Attack()
@@ -46,9 +50,11 @@ public class EnemyAttack : MonoBehaviour
         {
             mov.Jump();
             deltaTimeAttack = Time.time + attackRate;
-
-            GameObject target = attackTarget.GetComponent<RangeCollision>().objective;
-            target.GetComponent<HP>().DamageReceived(this.GetComponent<EnemyStats>().damage);
+            if (attackTarget.GetComponent<RangeCollision>().objective != null)
+            {
+                GameObject target = attackTarget.GetComponent<RangeCollision>().objective;
+                target.GetComponent<HP>().DamageReceived(this.GetComponent<EnemyStats>().damage);
+            }
         }
     }
 }
