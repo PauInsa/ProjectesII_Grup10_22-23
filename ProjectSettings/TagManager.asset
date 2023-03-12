@@ -3,7 +3,11 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Enemy
+  - Wall
+  - Human
+  - MapLimit
   layers:
   - Default
   - TransparentFX
@@ -11,16 +15,16 @@ TagManager:
   - 
   - Water
   - UI
+  - MapLimit
+  - Wall
+  - 
+  - Gun
+  - Humans
+  - Enemies
+  - Bullet
   - 
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - BulletCase
   - 
   - 
   - 
