@@ -7,6 +7,7 @@ TagManager:
   - Enemy
   - Wall
   - Human
+  - MapLimit
   layers:
   - Default
   - TransparentFX
@@ -20,7 +21,7 @@ TagManager:
   - Gun
   - Humans
   - Enemies
-  - 
+  - Bullet
   - 
   - 
   - BulletCase
