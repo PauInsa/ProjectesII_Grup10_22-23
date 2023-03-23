@@ -73,9 +73,10 @@
     <Compile Include="Assets\Scripts\Objects\Enemies\EnemyStats.cs" />
     <Compile Include="Assets\Scripts\Objects\HP.cs" />
     <Compile Include="Assets\Scripts\Bullet\BulletStats.cs" />
+    <Compile Include="Assets\Scripts\Scenes\WinCondition.cs" />
     <Compile Include="Assets\Scripts\Objects\DissapearTimeWithStart.cs" />
     <Compile Include="Assets\Scripts\Objects\Enemies\RangeCollision.cs" />
-    <Compile Include="Assets\Scripts\Scenes\WinCondition.cs" />
+    <Compile Include="Assets\Scripts\Platforms\Diana.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
