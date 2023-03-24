@@ -102,12 +102,12 @@ public class Shoot : MonoBehaviour
             rb.AddTorque(-gunTorque * Time.deltaTime , ForceMode2D.Impulse);
 
 
-        if (activateJump)
-        {
-            CalculateJump();
-            if (grounded)
-                activateJump = false;
-        }
+        //if (activateJump)
+        //{
+        //    CalculateJump();
+        //    if (grounded)
+        //        activateJump = false;
+        //}
 
         if (!grounded)
         {
