@@ -114,7 +114,6 @@ public class Shoot : MonoBehaviour
             activateJump = true;
         }
 
-        //if(grounded && )
 
         //sparkles.transform.position = goBullet.transform.position;  
         if (Time.time > deltaTimeReload && reloading)
