@@ -102,19 +102,18 @@ public class Shoot : MonoBehaviour
             rb.AddTorque(-gunTorque * Time.deltaTime , ForceMode2D.Impulse);
 
 
-        if (activateJump)
-        {
-            CalculateJump();
-            if (grounded)
-                activateJump = false;
-        }
+        //if (activateJump)
+        //{
+        //    CalculateJump();
+        //    if (grounded)
+        //        activateJump = false;
+        //}
 
         if (!grounded)
         {
             activateJump = true;
         }
 
-        //if(grounded && )
 
         //sparkles.transform.position = goBullet.transform.position;  
         if (Time.time > deltaTimeReload && reloading)

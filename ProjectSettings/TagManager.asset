@@ -8,6 +8,7 @@ TagManager:
   - Wall
   - Human
   - MapLimit
+  - Gun
   layers:
   - Default
   - TransparentFX
@@ -15,14 +16,14 @@ TagManager:
   - 
   - Water
   - UI
-  - MapLimit
+  - 
   - Wall
   - 
   - Gun
   - Humans
   - Enemies
   - Bullet
-  - 
+  - PowerUp
   - 
   - BulletCase
   - 

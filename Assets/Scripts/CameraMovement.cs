@@ -6,10 +6,18 @@ public class CameraMovement : MonoBehaviour
 {
     public Transform target;
 
-
     [SerializeField] float rightLimit = 6.4f;
     [SerializeField] float leftLimit = -5.9f;
-    [SerializeField] float y = 1.4f;
+    [SerializeField] float upLimit = 6.4f;
+    [SerializeField] float downLimit = -5.9f;
+
+    [SerializeField] float extraY;
+    [SerializeField] float extraX;
+
+    [SerializeField] float fixedY;
+    [SerializeField] float fixedX;
+    [SerializeField] bool fixY;
+    [SerializeField] bool fixX;
 
 
     // Update is called once per frame
@@ -24,7 +32,19 @@ public class CameraMovement : MonoBehaviour
         else if (target.position.x >= rightLimit)
             finalPos.x = rightLimit;
 
-        finalPos = new Vector3(finalPos.x, y, -10);
+        if (target.position.y <= downLimit)
+            finalPos.y = downLimit;
+        else if (target.position.y >= upLimit)
+            finalPos.y = upLimit;
+
+        if (fixX)
+            finalPos.x = fixedX;
+
+        if (fixY)
+            finalPos.y = fixedY;
+
+
+        finalPos = new Vector3(finalPos.x + extraX, finalPos.y + extraY, -10);
 
         transform.position = finalPos;
     }
