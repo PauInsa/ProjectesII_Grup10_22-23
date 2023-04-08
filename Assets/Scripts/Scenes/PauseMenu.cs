@@ -7,7 +7,6 @@ public class PauseMenu : MonoBehaviour
 {
     public GameObject pauseMenu;
     public GameObject controls;
-    bool showingControls;
     bool isPaused;
     public bool ableToPause;
 
@@ -16,7 +15,6 @@ public class PauseMenu : MonoBehaviour
     {
         ableToPause = true;
         isPaused = false;
-        showingControls = false;
         pauseMenu.SetActive(false);
         controls.SetActive(false);
     }
@@ -29,32 +27,27 @@ public class PauseMenu : MonoBehaviour
             if (isPaused)
             {
                 ResumeGame();
-                TogglePauseActive();
             }
             else
             {
                 PauseGame();
-                TogglePauseActive();
             }
         }
 
     }
 
-    public void TogglePauseActive()
-    {
-        pauseMenu.SetActive(!pauseMenu.active);
-    }
     public void PauseGame()
     {
         Time.timeScale = 0.0f;
         isPaused = true;
+        pauseMenu.SetActive(true);
     }
 
     public void ResumeGame()
     {
-        pauseMenu.SetActive(false);
         Time.timeScale = 1.0f;
         isPaused = false;
+        pauseMenu.SetActive(false);
     }
 
     public void SetScene(string scene)
@@ -67,15 +60,6 @@ public class PauseMenu : MonoBehaviour
 
     public void ShowControls()
     {
-        if (showingControls)
-        {
-            controls.SetActive(false);
-            showingControls = false;
-        }
-        else
-        {
-            controls.SetActive(true);
-            showingControls = true;
-        }
+        controls.SetActive(!controls.active);
     }
 }
