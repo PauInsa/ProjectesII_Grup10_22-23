@@ -36,6 +36,7 @@ public class WinCondition : MonoBehaviour
     {
         pause.ableToPause = false;
         pause.PauseGame();
+        pause.pauseMenu.SetActive(false);
 
         if (win)
             victory.SetActive(true);
