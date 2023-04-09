@@ -11,7 +11,7 @@ public class Shoot : MonoBehaviour
     public Transform gun;
     public Rigidbody2D rb;
     public Animator anim;
-    //public AudioSource fireSound, reloadSound;
+    public AudioSource fireSound;
 
     public Transform standingMassCenter;
     public Transform normalMassCenter;
@@ -25,11 +25,7 @@ public class Shoot : MonoBehaviour
     public Transform casePoint;
     public float bulletCaseForce;
 
-    float deltaTimeJump;
-    public float jumpTime;
-    public bool activateJump;
     public float jumpForce;
-    public float downForce = 0.0f;
     public float gunTorque;
     public float recoilForce;
     public float fireRate;
@@ -37,6 +33,7 @@ public class Shoot : MonoBehaviour
 
     public float reloadTime;
 
+    public TextMeshProUGUI ammoText;
     public int maxAmmo;
     int ammo;
 
@@ -45,11 +42,9 @@ public class Shoot : MonoBehaviour
 
     public bool grounded;
 
-    //public ParticleSystem sparkles;
-    
-
     public bool ableToShoot;
 
+    bool cheated;
 
     public Transform centerMassViewer;
     // Start is called before the first frame update
@@ -58,7 +53,7 @@ public class Shoot : MonoBehaviour
         ammo = maxAmmo;
         reloading = false;
         ableToShoot = false;
-        activateJump = false;
+        cheated = false;
 
         UpdateMassCenter();
     }
@@ -93,8 +88,18 @@ public class Shoot : MonoBehaviour
             Jump();
         }
 
-        if (Input.GetKey(KeyCode.E) && !reloading && ammo != maxAmmo)
+        if (Input.GetKey(KeyCode.W) && !reloading && ammo != maxAmmo)
             Reload();
+
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            if (cheated)
+                maxAmmo -= 30;
+            else
+                maxAmmo += 30;
+
+            cheated = !cheated;
+        }
 
         if (Input.GetKey(KeyCode.A))
             rb.AddTorque(gunTorque* Time.deltaTime , ForceMode2D.Impulse);
@@ -102,27 +107,14 @@ public class Shoot : MonoBehaviour
             rb.AddTorque(-gunTorque * Time.deltaTime , ForceMode2D.Impulse);
 
 
-        if (activateJump)
-        {
-            CalculateJump();
-            if (grounded)
-                activateJump = false;
-        }
-
-        if (!grounded)
-        {
-            activateJump = true;
-        }
-
-        //if(grounded && )
-
-        //sparkles.transform.position = goBullet.transform.position;  
         if (Time.time > deltaTimeReload && reloading)
         {
             ammo = maxAmmo;
             anim.SetInteger("Ammo", ammo);
             reloading = false;
         }
+
+        ammoText.text = ("Ammo: "+ ammo);
     }
 
     public void shoot()
@@ -143,6 +135,8 @@ public class Shoot : MonoBehaviour
                 goBullet.GetComponent<Rigidbody2D>().AddForce(goBullet.transform.right * bulletSpd);
                 Destroy(goBullet, bulletDissapearTime);
 
+                fireSound.Play();
+
                 SpawnBulletCase();
 
                 recoil();
@@ -160,7 +154,6 @@ public class Shoot : MonoBehaviour
         Vector2 xyVector = new Vector2(gun.transform.right.x, gun.transform.right.y);
         xyVector.Normalize();
         //rb.velocity = Vector2.zero;
-        downForce = 0.0f;
         rb.AddForce(xyVector * recoilForce, ForceMode2D.Force);
     }
 
@@ -191,17 +184,7 @@ public class Shoot : MonoBehaviour
     void Jump()
     {
         if (grounded)
-        {
-            activateJump = true;
-            deltaTimeJump = Time.time + jumpTime;
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
-        }
-    }
-
-    void CalculateJump()
-    {
-        float finalForce = downForce * (deltaTimeJump - Time.time);
-        rb.AddForce(Vector2.up * finalForce, ForceMode2D.Force);
     }
 }
 
