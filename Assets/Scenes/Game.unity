@@ -184,7 +184,6 @@ GameObject:
   - component: {fileID: 194725409}
   - component: {fileID: 194725408}
   - component: {fileID: 194725407}
-  - component: {fileID: 194725405}
   - component: {fileID: 194725404}
   - component: {fileID: 194725410}
   - component: {fileID: 194725411}
@@ -230,22 +229,6 @@ MonoBehaviour:
   grounded: 0
   ableToShoot: 0
   centerMassViewer: {fileID: 1624110761}
---- !u!114 &194725405
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 194725403}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 80c8329e66050bf4084513466b15089a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  render: {fileID: 194725408}
-  gun: {fileID: 194725409}
-  rb: {fileID: 194725407}
-  animator: {fileID: 194725411}
 --- !u!50 &194725407
 Rigidbody2D:
   serializedVersion: 4
