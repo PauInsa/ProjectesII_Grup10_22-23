@@ -5,6 +5,7 @@ using UnityEngine;
 public class Bumper : MonoBehaviour
 {
     public float Force;
+    public Animator animator;
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -14,6 +15,8 @@ public class Bumper : MonoBehaviour
             direction.Normalize();
 
             collision.gameObject.GetComponent<Rigidbody2D>().velocity = (direction * Force);
+
+            animator.SetTrigger("Hit");
         }
 
     }
