@@ -162,7 +162,7 @@ MonoBehaviour:
   gunTorque: 40
   recoilForce: -1000
   fireRate: 0.01
-  reloadTime: 1
+  reloadTime: 3
   maxAmmo: 1
   grounded: 0
   ableToShoot: 0
