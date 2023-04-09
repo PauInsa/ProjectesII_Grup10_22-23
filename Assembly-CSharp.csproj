@@ -79,6 +79,7 @@
     <Compile Include="Assets\Scripts\Objects\DissapearTimeWithStart.cs" />
     <Compile Include="Assets\Scripts\Scenes\EndLevel.cs" />
     <Compile Include="Assets\Scripts\Objects\Enemies\RangeCollision.cs" />
+    <Compile Include="Assets\Scripts\Bullet\CaseSound.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

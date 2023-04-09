@@ -11,7 +11,7 @@ public class Shoot : MonoBehaviour
     public Transform gun;
     public Rigidbody2D rb;
     public Animator anim;
-    //public AudioSource fireSound, reloadSound;
+    public AudioSource fireSound;
 
     public Transform standingMassCenter;
     public Transform normalMassCenter;
@@ -134,6 +134,8 @@ public class Shoot : MonoBehaviour
                 goBullet.transform.right = gun.transform.right;
                 goBullet.GetComponent<Rigidbody2D>().AddForce(goBullet.transform.right * bulletSpd);
                 Destroy(goBullet, bulletDissapearTime);
+
+                fireSound.Play();
 
                 SpawnBulletCase();
 
