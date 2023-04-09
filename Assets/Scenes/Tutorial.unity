@@ -2143,6 +2143,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1347856453 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5179464634909686673, guid: 527d7c4f210d7a14cae6a692bc7734b2, type: 3}
+  m_PrefabInstance: {fileID: 1086055585162039906}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1423234819
 GameObject:
   m_ObjectHideFlags: 0
@@ -2333,6 +2344,10 @@ PrefabInstance:
       propertyPath: maxAmmo
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 745996657893367392, guid: d8cf77036408ada47a10a5a54f30e09f, type: 3}
+      propertyPath: ammoText
+      value: 
+      objectReference: {fileID: 1347856453}
     - target: {fileID: 745996657893367392, guid: d8cf77036408ada47a10a5a54f30e09f, type: 3}
       propertyPath: casePool
       value: 

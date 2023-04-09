@@ -25,9 +25,6 @@ public class Shoot : MonoBehaviour
     public Transform casePoint;
     public float bulletCaseForce;
 
-    float deltaTimeJump;
-    public float jumpTime;
-    public bool activateJump;
     public float jumpForce;
     public float gunTorque;
     public float recoilForce;
@@ -36,6 +33,7 @@ public class Shoot : MonoBehaviour
 
     public float reloadTime;
 
+    public TextMeshProUGUI ammoText;
     public int maxAmmo;
     int ammo;
 
@@ -55,7 +53,6 @@ public class Shoot : MonoBehaviour
         ammo = maxAmmo;
         reloading = false;
         ableToShoot = false;
-        activateJump = false;
         cheated = false;
 
         UpdateMassCenter();
@@ -110,26 +107,14 @@ public class Shoot : MonoBehaviour
             rb.AddTorque(-gunTorque * Time.deltaTime , ForceMode2D.Impulse);
 
 
-        //if (activateJump)
-        //{
-        //    CalculateJump();
-        //    if (grounded)
-        //        activateJump = false;
-        //}
-
-        if (!grounded)
-        {
-            activateJump = true;
-        }
-
-
-        //sparkles.transform.position = goBullet.transform.position;  
         if (Time.time > deltaTimeReload && reloading)
         {
             ammo = maxAmmo;
             anim.SetInteger("Ammo", ammo);
             reloading = false;
         }
+
+        ammoText.text = ("Ammo: "+ ammo);
     }
 
     public void shoot()
@@ -197,11 +182,7 @@ public class Shoot : MonoBehaviour
     void Jump()
     {
         if (grounded)
-        {
-            activateJump = true;
-            deltaTimeJump = Time.time + jumpTime;
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
-        }
     }
 }
 
