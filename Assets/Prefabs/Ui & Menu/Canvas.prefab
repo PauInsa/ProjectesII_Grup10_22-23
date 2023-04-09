@@ -1888,7 +1888,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'A D: rotate gun
 
-    E: reload
+    W: reload
 
 
     Mouse Buttons:

@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 745996657893367389}
   - component: {fileID: 745996657893367388}
   - component: {fileID: 745996657893367395}
-  - component: {fileID: 745996657893367393}
   - component: {fileID: 745996657893367392}
   - component: {fileID: 745996657893367390}
   - component: {fileID: 745996657893367391}
@@ -116,22 +115,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
---- !u!114 &745996657893367393
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 745996657893367399}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 80c8329e66050bf4084513466b15089a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  render: {fileID: 745996657893367388}
-  gun: {fileID: 745996657893367389}
-  rb: {fileID: 745996657893367395}
-  animator: {fileID: 745996657893367391}
 --- !u!114 &745996657893367392
 MonoBehaviour:
   m_ObjectHideFlags: 0
