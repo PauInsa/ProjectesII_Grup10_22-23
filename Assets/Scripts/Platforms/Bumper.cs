@@ -6,6 +6,7 @@ public class Bumper : MonoBehaviour
 {
     public float Force;
     public Animator animator;
+    public AudioSource sound;
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -17,6 +18,8 @@ public class Bumper : MonoBehaviour
             collision.gameObject.GetComponent<Rigidbody2D>().velocity = (direction * Force);
 
             animator.SetTrigger("Hit");
+
+            sound.Play();
         }
 
     }

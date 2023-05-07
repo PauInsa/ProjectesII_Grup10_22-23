@@ -11,6 +11,7 @@ public class Shoot : MonoBehaviour
 
     public Animator anim;
     public AudioSource fireSound;
+    public AudioSource reloadSound;
 
     public Transform shootPoint;
     public GameObject bullet;
@@ -106,7 +107,7 @@ public class Shoot : MonoBehaviour
             anim.SetTrigger("Reload");
             anim.SetInteger("Ammo", ammo);
             reloading = true;
-            //reloadSound.Play();
+            reloadSound.Play();
             deltaTimeReload = Time.time + reloadTime;
         }
     }
