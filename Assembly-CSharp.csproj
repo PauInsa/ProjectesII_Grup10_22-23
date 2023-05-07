@@ -59,7 +59,7 @@
     <Compile Include="Assets\Scripts\Scenes\PauseMenu.cs" />
     <Compile Include="Assets\Scripts\PowerUps\MaxAmmo.cs" />
     <Compile Include="Assets\Scripts\Objects\Humans\HumanManager.cs" />
-    <Compile Include="Assets\Scripts\CameraMovement.cs" />
+    <Compile Include="Assets\Scripts\Camera&amp;UI\CameraMovement.cs" />
     <Compile Include="Assets\Scripts\Spawners\Spawner.cs" />
     <Compile Include="Assets\Scripts\Scenes\SceneEvents.cs" />
     <Compile Include="Assets\Scripts\Objects\Enemies\EnemyMovement.cs" />
@@ -67,19 +67,23 @@
     <Compile Include="Assets\Scripts\Gun\Interpolator.cs" />
     <Compile Include="Assets\Scripts\Gun\Shoot.cs" />
     <Compile Include="Assets\Scripts\Platforms\BouncePlatform.cs" />
+    <Compile Include="Assets\Scripts\Camera&amp;UI\AppearUI.cs" />
+    <Compile Include="Assets\Scripts\Gun\PistolMovement.cs" />
     <Compile Include="Assets\Scripts\Spawners\PoolRb.cs" />
     <Compile Include="Assets\Scripts\Objects\Enemies\EnemyAttack.cs" />
     <Compile Include="Assets\Scripts\Bullet\DissapearTime.cs" />
     <Compile Include="Assets\Scripts\Objects\Enemies\EnemyStats.cs" />
+    <Compile Include="Assets\Scripts\Gun\PistolControl.cs" />
     <Compile Include="Assets\Scripts\Objects\HP.cs" />
     <Compile Include="Assets\Scripts\Platforms\Bumper.cs" />
     <Compile Include="Assets\Scripts\Platforms\Diana.cs" />
+    <Compile Include="Assets\Scripts\Bullet\CaseSound.cs" />
     <Compile Include="Assets\Scripts\Bullet\BulletStats.cs" />
     <Compile Include="Assets\Scripts\Scenes\WinCondition.cs" />
     <Compile Include="Assets\Scripts\Objects\DissapearTimeWithStart.cs" />
     <Compile Include="Assets\Scripts\Scenes\EndLevel.cs" />
     <Compile Include="Assets\Scripts\Objects\Enemies\RangeCollision.cs" />
-    <Compile Include="Assets\Scripts\Bullet\CaseSound.cs" />
+    <Compile Include="Assets\Scripts\Camera&amp;UI\ChangeCameraValues.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

@@ -9,6 +9,8 @@ TagManager:
   - Human
   - MapLimit
   - Gun
+  - Case
+  - Bullet
   layers:
   - Default
   - TransparentFX
@@ -45,4 +47,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Front
+    uniqueID: 2649576153
     locked: 0

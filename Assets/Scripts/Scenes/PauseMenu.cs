@@ -5,9 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
+    public AudioSource buttonSound;
     public GameObject pauseMenu;
-    public GameObject controls;
-    bool isPaused;
+    public bool isPaused;
     public bool ableToPause;
 
     // Start is called before the first frame update
@@ -16,7 +16,6 @@ public class PauseMenu : MonoBehaviour
         ableToPause = true;
         isPaused = false;
         pauseMenu.SetActive(false);
-        controls.SetActive(false);
     }
 
     // Update is called once per frame
@@ -32,6 +31,8 @@ public class PauseMenu : MonoBehaviour
             {
                 PauseGame();
             }
+
+            
         }
 
     }
@@ -41,6 +42,7 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 0.0f;
         isPaused = true;
         pauseMenu.SetActive(true);
+        ClickSound();
     }
 
     public void ResumeGame()
@@ -48,18 +50,22 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 1.0f;
         isPaused = false;
         pauseMenu.SetActive(false);
+        ClickSound();
     }
 
     public void SetScene(string scene)
     {
+        ClickSound();
         pauseMenu.SetActive(false);
         Time.timeScale = 1.0f;
         isPaused = false;
         SceneManager.LoadScene(scene);
+        
     }
 
-    public void ShowControls()
+    void ClickSound()
     {
-        controls.SetActive(!controls.active);
+        buttonSound.Play();
     }
 }
+

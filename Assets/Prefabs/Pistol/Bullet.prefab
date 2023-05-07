@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 3136174229672134922}
   m_Layer: 12
   m_Name: Bullet
-  m_TagString: Untagged
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -74,6 +74,7 @@ MonoBehaviour:
   anim: {fileID: 3136174229672134922}
   rb: {fileID: 4277695784635232326}
   col: {fileID: 4277695784635232329}
+  lifeTime: 5
 --- !u!114 &4277695784635232328
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -283,7 +284,7 @@ Animator:
   m_GameObject: {fileID: 4277695784635232322}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 39af9f5b817bb6344ae90c2e02525109, type: 2}
+  m_Controller: {fileID: 9100000, guid: b3be22d1e091bbd4fa78a1ccc2501add, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
