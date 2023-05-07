@@ -67,6 +67,7 @@
     <Compile Include="Assets\Scripts\Gun\Interpolator.cs" />
     <Compile Include="Assets\Scripts\Gun\Shoot.cs" />
     <Compile Include="Assets\Scripts\Platforms\BouncePlatform.cs" />
+    <Compile Include="Assets\Scripts\Camera&amp;UI\AppearUI.cs" />
     <Compile Include="Assets\Scripts\Gun\PistolMovement.cs" />
     <Compile Include="Assets\Scripts\Spawners\PoolRb.cs" />
     <Compile Include="Assets\Scripts\Objects\Enemies\EnemyAttack.cs" />
@@ -82,7 +83,6 @@
     <Compile Include="Assets\Scripts\Objects\DissapearTimeWithStart.cs" />
     <Compile Include="Assets\Scripts\Scenes\EndLevel.cs" />
     <Compile Include="Assets\Scripts\Objects\Enemies\RangeCollision.cs" />
-    <Compile Include="Assets\Scripts\Camera&amp;UI\AppearUI.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
