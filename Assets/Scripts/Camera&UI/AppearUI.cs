@@ -9,11 +9,12 @@ public class AppearUI : MonoBehaviour
 
     float triggeredTime = 0.0f;
     bool triggered = false;
+    bool appeared = false;
 
     private void Update()
     {
 
-        if (triggered)
+        if (triggered && !appeared)
             Appear();
     }
 
@@ -31,6 +32,8 @@ public class AppearUI : MonoBehaviour
     {
         Color color;
         float alpha = (Time.time - triggeredTime) / appearingTime;
+        if (alpha >= 1.0f)
+            appeared = true;
         color = new Color(1.0f, 1.0f, 1.0f, alpha);
         for (int i = 0; i < UI.Count; i++)
             UI[i].color = color;
