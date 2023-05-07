@@ -181,7 +181,7 @@ MonoBehaviour:
   fireRate: 0.01
   reloadTime: 3
   ammoText: {fileID: 0}
-  maxAmmo: 1
+  maxAmmo: 4
 --- !u!60 &745996657893367390
 PolygonCollider2D:
   m_ObjectHideFlags: 0
