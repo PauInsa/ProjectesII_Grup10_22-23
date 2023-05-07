@@ -11,8 +11,8 @@ public class CameraMovement : MonoBehaviour
     [SerializeField] float upLimit = 6.4f;
     [SerializeField] float downLimit = -5.9f;
 
-    [SerializeField] float extraY;
-    [SerializeField] float extraX;
+    public float extraY;
+    public float extraX;
 
     [SerializeField] float fixedY;
     [SerializeField] float fixedX;

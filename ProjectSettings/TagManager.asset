@@ -9,6 +9,8 @@ TagManager:
   - Human
   - MapLimit
   - Gun
+  - Case
+  - Bullet
   layers:
   - Default
   - TransparentFX

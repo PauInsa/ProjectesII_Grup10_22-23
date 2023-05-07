@@ -10,7 +10,7 @@ public class Bumper : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.transform.CompareTag("Gun"))
+        if (collision.transform.CompareTag("Gun") || collision.transform.CompareTag("Bullet"))
         {
             Vector2 direction = this.gameObject.transform.position - collision.gameObject.GetComponent<Transform>().position;
             direction.Normalize();
