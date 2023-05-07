@@ -571,11 +571,6 @@ Transform:
   m_Father: {fileID: 1373697151}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &388797486 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1086055585310639692, guid: 527d7c4f210d7a14cae6a692bc7734b2, type: 3}
-  m_PrefabInstance: {fileID: 1086055585162039906}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &547672986 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 539194527085602852, guid: d8cf77036408ada47a10a5a54f30e09f, type: 3}
@@ -2051,7 +2046,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 745996657893367392, guid: d8cf77036408ada47a10a5a54f30e09f, type: 3}
       propertyPath: maxAmmo
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 745996657893367392, guid: d8cf77036408ada47a10a5a54f30e09f, type: 3}
       propertyPath: ammoText
@@ -144012,7 +144007,7 @@ PrefabInstance:
     - target: {fileID: 2077328787906051684, guid: 7eec53367b08db549b93c1f8f5b5b836, type: 3}
       propertyPath: controls
       value: 
-      objectReference: {fileID: 388797486}
+      objectReference: {fileID: 0}
     - target: {fileID: 2077328787906051684, guid: 7eec53367b08db549b93c1f8f5b5b836, type: 3}
       propertyPath: pauseMenu
       value: 
