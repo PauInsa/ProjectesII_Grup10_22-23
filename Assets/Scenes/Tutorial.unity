@@ -169,9 +169,9 @@ GameObject:
   - component: {fileID: 25987934}
   - component: {fileID: 25987936}
   - component: {fileID: 25987935}
-  m_Layer: 7
+  m_Layer: 16
   m_Name: JumpCollider
-  m_TagString: Wall
+  m_TagString: Trigger
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -666,9 +666,9 @@ GameObject:
   - component: {fileID: 414625178}
   - component: {fileID: 414625180}
   - component: {fileID: 414625179}
-  m_Layer: 7
+  m_Layer: 16
   m_Name: ShootCollider
-  m_TagString: Wall
+  m_TagString: Trigger
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1152,9 +1152,9 @@ GameObject:
   - component: {fileID: 835340824}
   - component: {fileID: 835340826}
   - component: {fileID: 835340825}
-  m_Layer: 7
+  m_Layer: 16
   m_Name: ShootCollider
-  m_TagString: Wall
+  m_TagString: Trigger
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1961,9 +1961,9 @@ GameObject:
   - component: {fileID: 1299948239}
   - component: {fileID: 1299948241}
   - component: {fileID: 1299948240}
-  m_Layer: 7
+  m_Layer: 16
   m_Name: RotateCollider
-  m_TagString: Wall
+  m_TagString: Trigger
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
