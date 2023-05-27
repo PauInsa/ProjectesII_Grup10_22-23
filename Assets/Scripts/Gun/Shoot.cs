@@ -6,6 +6,8 @@ using TMPro;
 
 public class Shoot : MonoBehaviour
 {
+    public int shotCount;
+
     public Transform gun;
     public Rigidbody2D rb;
 
@@ -43,6 +45,7 @@ public class Shoot : MonoBehaviour
         ammo = maxAmmo;
         reloading = false;
         cheated = false;
+        shotCount = 0;
     }
 
     void Update()
@@ -84,6 +87,8 @@ public class Shoot : MonoBehaviour
 
                 if (ammo == 0)
                     Reload();
+
+                shotCount++;
             }
         }
     }
