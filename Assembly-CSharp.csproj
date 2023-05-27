@@ -64,6 +64,7 @@
     <Compile Include="Assets\Scripts\Scenes\SceneEvents.cs" />
     <Compile Include="Assets\Scripts\Objects\Enemies\EnemyMovement.cs" />
     <Compile Include="Assets\Scripts\Bullet\BulletCollision.cs" />
+    <Compile Include="Assets\Scripts\Bullet\Bullet.cs" />
     <Compile Include="Assets\Scripts\Gun\Interpolator.cs" />
     <Compile Include="Assets\Scripts\Gun\Shoot.cs" />
     <Compile Include="Assets\Scripts\Platforms\BouncePlatform.cs" />
