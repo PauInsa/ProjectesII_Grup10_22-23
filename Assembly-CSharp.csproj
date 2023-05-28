@@ -86,6 +86,9 @@
     <Compile Include="Assets\Scripts\Scenes\EndLevel.cs" />
     <Compile Include="Assets\Scripts\Objects\Enemies\RangeCollision.cs" />
     <Compile Include="Assets\Scripts\Camera&amp;UI\ChangeCameraValues.cs" />
+    <Compile Include="Assets\Scripts\Rankings\RankingData.cs" />
+    <Compile Include="Assets\Scripts\Rankings\SaveData.cs" />
+    <Compile Include="Assets\Scripts\Rankings\RankingManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
