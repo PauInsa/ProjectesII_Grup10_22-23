@@ -18,11 +18,7 @@ public class RankingManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        timeData = new float[100];
-        shotsData = new int[100];
-
-        //SaveData.Save(timeData, shotsData);
-        
+        //ResetRanking();
 
         timeRecord.SetActive(false);
         shotRecord.SetActive(false);
@@ -31,6 +27,20 @@ public class RankingManager : MonoBehaviour
 
         timeData = data.time;
         shotsData = data.shots;
+    }
+
+    void ResetRanking()
+    {
+        timeData = new float[100];
+        shotsData = new int[100];
+
+        for (int i = 0; i < 100; i++)
+        {
+            timeData[i] = 1000;
+            shotsData[i] = 1000;
+        }
+
+        SaveData.Save(timeData, shotsData);
     }
 
     public void EndLevel(int level, float time, int shots)
