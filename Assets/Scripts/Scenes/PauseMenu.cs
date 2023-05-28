@@ -31,10 +31,7 @@ public class PauseMenu : MonoBehaviour
             {
                 PauseGame();
             }
-
-            
         }
-
     }
 
     public void PauseGame()
@@ -60,7 +57,6 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 1.0f;
         isPaused = false;
         SceneManager.LoadScene(scene);
-        
     }
 
     void ClickSound()
