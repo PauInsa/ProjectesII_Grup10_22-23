@@ -31,10 +31,7 @@ public class PauseMenu : MonoBehaviour
             {
                 PauseGame();
             }
-
-            
         }
-
     }
 
     public void PauseGame()

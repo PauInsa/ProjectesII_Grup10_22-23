@@ -6,13 +6,18 @@ using UnityEngine.SceneManagement;
 
 public class EndLevel : MonoBehaviour
 {
-    public string scene;
+    public GameObject endMenu;
+
+    void Start()
+    {
+        endMenu.SetActive(false);
+    }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.transform.CompareTag("Gun"))
         {
-            SceneManager.LoadScene(scene);
+            endMenu.SetActive(true);
         }
     }
 }

@@ -57,6 +57,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Scenes\PauseMenu.cs" />
+    <Compile Include="Assets\Scripts\Rankings\Timer.cs" />
     <Compile Include="Assets\Scripts\PowerUps\MaxAmmo.cs" />
     <Compile Include="Assets\Scripts\Objects\Humans\HumanManager.cs" />
     <Compile Include="Assets\Scripts\Camera&amp;UI\CameraMovement.cs" />
@@ -85,7 +86,6 @@
     <Compile Include="Assets\Scripts\Scenes\EndLevel.cs" />
     <Compile Include="Assets\Scripts\Objects\Enemies\RangeCollision.cs" />
     <Compile Include="Assets\Scripts\Camera&amp;UI\ChangeCameraValues.cs" />
-    <Compile Include="Assets\Scripts\Rankings\Timer.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

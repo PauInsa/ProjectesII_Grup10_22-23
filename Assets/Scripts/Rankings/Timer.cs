@@ -19,6 +19,4 @@ public class Timer : MonoBehaviour
     {
         timeText.text = (Time.time.ToString());
     }
-
-
 }

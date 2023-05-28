@@ -6694,7 +6694,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de95fd80634e5c942b6702e55a316f54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scene: Level 5
+  endMenu: {fileID: 1086055585162039907}
 --- !u!61 &1098567467
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -89244,6 +89244,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 570298863443877711, guid: 527d7c4f210d7a14cae6a692bc7734b2, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -28.600006
+      objectReference: {fileID: 0}
     - target: {fileID: 1086055583329454196, guid: 527d7c4f210d7a14cae6a692bc7734b2, type: 3}
       propertyPath: m_Name
       value: Canvas
@@ -89408,12 +89412,41 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4221634117407180443, guid: 527d7c4f210d7a14cae6a692bc7734b2, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 389379977}
+    - target: {fileID: 4221634117407180443, guid: 527d7c4f210d7a14cae6a692bc7734b2, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetScene
+      objectReference: {fileID: 0}
     - target: {fileID: 6733313024626755896, guid: 527d7c4f210d7a14cae6a692bc7734b2, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8644957681902419223, guid: 527d7c4f210d7a14cae6a692bc7734b2, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8644957681902419223, guid: 527d7c4f210d7a14cae6a692bc7734b2, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 389379977}
+    - target: {fileID: 8644957681902419223, guid: 527d7c4f210d7a14cae6a692bc7734b2, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetScene
+      objectReference: {fileID: 0}
+    - target: {fileID: 8644957681902419223, guid: 527d7c4f210d7a14cae6a692bc7734b2, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: Level 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 527d7c4f210d7a14cae6a692bc7734b2, type: 3}
+--- !u!1 &1086055585162039907 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8448141719184509450, guid: 527d7c4f210d7a14cae6a692bc7734b2, type: 3}
+  m_PrefabInstance: {fileID: 1086055585162039906}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1150263162842777920
 MonoBehaviour:
   m_ObjectHideFlags: 0
