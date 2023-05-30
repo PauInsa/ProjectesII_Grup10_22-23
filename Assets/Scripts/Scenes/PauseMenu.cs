@@ -10,6 +10,10 @@ public class PauseMenu : MonoBehaviour
     public bool isPaused;
     public bool ableToPause;
 
+    public string nextScene;
+    public string prevScene;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -31,9 +35,13 @@ public class PauseMenu : MonoBehaviour
             {
                 PauseGame();
             }
-
-            
         }
+
+        if (Input.GetKeyDown(KeyCode.B) && prevScene != null)
+            SetScene(prevScene);
+
+        if (Input.GetKeyDown(KeyCode.N) && nextScene != null)
+            SetScene(nextScene);
 
     }
 
@@ -60,7 +68,6 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 1.0f;
         isPaused = false;
         SceneManager.LoadScene(scene);
-        
     }
 
     void ClickSound()
