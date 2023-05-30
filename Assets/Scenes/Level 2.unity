@@ -682,9 +682,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 2077328787906051684, guid: 7eec53367b08db549b93c1f8f5b5b836, type: 3}
+      propertyPath: nextScene
+      value: Level 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2077328787906051684, guid: 7eec53367b08db549b93c1f8f5b5b836, type: 3}
       propertyPath: pauseMenu
       value: 
       objectReference: {fileID: 671264752}
+    - target: {fileID: 2077328787906051684, guid: 7eec53367b08db549b93c1f8f5b5b836, type: 3}
+      propertyPath: prevScene
+      value: Level 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2077328787906051685, guid: 7eec53367b08db549b93c1f8f5b5b836, type: 3}
       propertyPath: m_Name
       value: PauseManager

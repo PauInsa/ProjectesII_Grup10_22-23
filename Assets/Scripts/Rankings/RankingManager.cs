@@ -57,8 +57,8 @@ public class RankingManager : MonoBehaviour
             shotRecord.SetActive(true);
         }
 
-        timeText.text = (time + "/" + timeData[level]);
-        shotText.text = (shots + "/" + shotsData[level]);
+        timeText.text = (time + "/\n" + timeData[level]);
+        shotText.text = (shots + "/\n" + shotsData[level]);
 
         SaveLevelData();
     }

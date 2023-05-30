@@ -61,6 +61,8 @@
     <Compile Include="Assets\Scripts\PowerUps\MaxAmmo.cs" />
     <Compile Include="Assets\Scripts\Objects\Humans\HumanManager.cs" />
     <Compile Include="Assets\Scripts\Camera&amp;UI\CameraMovement.cs" />
+    <Compile Include="Assets\Scripts\Scenes\EndTutorial.cs" />
+    <Compile Include="Assets\Scripts\Rankings\RankingManager.cs" />
     <Compile Include="Assets\Scripts\Spawners\Spawner.cs" />
     <Compile Include="Assets\Scripts\Scenes\SceneEvents.cs" />
     <Compile Include="Assets\Scripts\Objects\Enemies\EnemyMovement.cs" />
@@ -72,6 +74,7 @@
     <Compile Include="Assets\Scripts\Camera&amp;UI\AppearUI.cs" />
     <Compile Include="Assets\Scripts\Gun\PistolMovement.cs" />
     <Compile Include="Assets\Scripts\Spawners\PoolRb.cs" />
+    <Compile Include="Assets\Scripts\Rankings\SaveData.cs" />
     <Compile Include="Assets\Scripts\Objects\Enemies\EnemyAttack.cs" />
     <Compile Include="Assets\Scripts\Bullet\DissapearTime.cs" />
     <Compile Include="Assets\Scripts\Objects\Enemies\EnemyStats.cs" />
@@ -87,9 +90,6 @@
     <Compile Include="Assets\Scripts\Objects\Enemies\RangeCollision.cs" />
     <Compile Include="Assets\Scripts\Camera&amp;UI\ChangeCameraValues.cs" />
     <Compile Include="Assets\Scripts\Rankings\RankingData.cs" />
-    <Compile Include="Assets\Scripts\Rankings\SaveData.cs" />
-    <Compile Include="Assets\Scripts\Rankings\RankingManager.cs" />
-    <Compile Include="Assets\Scripts\Scenes\EndTutorial.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
