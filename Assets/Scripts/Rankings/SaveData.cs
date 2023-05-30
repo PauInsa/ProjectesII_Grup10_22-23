@@ -7,7 +7,7 @@ public static class SaveData
     public static void Save(float[] t, int[] s)
     {
         BinaryFormatter formatter = new BinaryFormatter();
-        string path = Application.persistentDataPath + "ranking.dat";
+        string path = Application.persistentDataPath + "/ranking.dat";
         FileStream fileStream = new FileStream(path, FileMode.Create);
 
         RankingData data = new RankingData(t,s);
@@ -18,13 +18,21 @@ public static class SaveData
 
     public static RankingData LoadRanking()
     {
-        string path = Application.persistentDataPath + "ranking.dat";
-        BinaryFormatter formatter = new BinaryFormatter();
-        FileStream fileStream = new FileStream(path, FileMode.Open);
+        string path = Application.persistentDataPath + "/ranking.dat";
+        if(File.Exists(path))
+        {
+            BinaryFormatter formatter = new BinaryFormatter();
+            FileStream fileStream = new FileStream(path, FileMode.Open);
 
-        RankingData data = formatter.Deserialize(fileStream) as RankingData;
-        fileStream.Close();
+            RankingData data = formatter.Deserialize(fileStream) as RankingData;
+            fileStream.Close();
 
-        return data;
+            return data;
+        }
+        else
+        {
+            return null;
+        }
+        
     }
 }
