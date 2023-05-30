@@ -18,18 +18,21 @@ public class RankingManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //ResetRanking();
-
         timeRecord.SetActive(false);
         shotRecord.SetActive(false);
 
         RankingData data = SaveData.LoadRanking();
 
+        if (data == null)
+        {
+            CreateRanking();
+        }
+
         timeData = data.time;
         shotsData = data.shots;
     }
 
-    void ResetRanking()
+    void CreateRanking()
     {
         timeData = new float[100];
         shotsData = new int[100];
